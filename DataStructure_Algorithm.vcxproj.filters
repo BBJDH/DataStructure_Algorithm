@@ -2,6 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="LinkedList\LinkedList.cpp" />
-    <ClCompile Include="이중연결리스트\소스.cpp" />
+    <ClCompile Include="DoublyLinkedList\DoublyLinkedList.cpp" />
   </ItemGroup>
 </Project>
