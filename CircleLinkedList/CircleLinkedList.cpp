@@ -7,7 +7,7 @@ struct Node
 	Node* Next;
 };
 
-Node* Create(int data)
+Node* Create(int const data)
 {
 	Node* node = new Node();
 	node->Data = data;
@@ -23,7 +23,7 @@ void Destroy(Node* node)
 	node = nullptr;
 }
 
-void Push(Node** head, Node* node)
+void Push(Node** const head, Node* const node)
 {
 	if (*head == nullptr)
 	{
@@ -34,8 +34,8 @@ void Push(Node** head, Node* node)
 	else
 	{
 		Node* tail = (*head)->Prev;
-
-		tail->Next->Prev = node;
+		
+		(*head)->Prev = node;
 		tail->Next = node;
 
 		node->Next = (*head);
@@ -43,7 +43,7 @@ void Push(Node** head, Node* node)
 	}
 }
 
-void Insert(Node* current, Node* node)
+void Insert(Node* const current, Node* const node)
 {
 	node->Next = current->Next;
 	node->Prev = current;
@@ -52,7 +52,7 @@ void Insert(Node* current, Node* node)
 	current->Next = node;
 }
 
-void Remove(Node** head, Node* remove)
+void Remove(Node** const head, Node* const remove)
 {
 	if (*head == remove)
 	{
@@ -77,7 +77,7 @@ void Remove(Node** head, Node* remove)
 Node* GetNode(Node* const head, int location)
 {
 	Node*  current = head;
-	while ((--location)>0 and current->Next !=nullptr)
+	while ( current->Next !=nullptr and (--location) >= 0 )
 	{
 		current = current->Next;
 	}
@@ -85,14 +85,18 @@ Node* GetNode(Node* const head, int location)
 }
 int GetNodeCount(Node* const head)
 {
-	int count = 0;
+	int count = 1;
 	Node* current = head;
+	Node* tail = head->Prev;
 
-	while (current->Next != head and current->Next != nullptr)
+	if (current == nullptr)
+		return 0;
+	if (current == tail)
+		return count;
+	while (current != tail)
 	{
-		count++;
 		current = current->Next;
-
+		count++;
 	}
 	return count;
 }
@@ -111,17 +115,17 @@ void PrintList(Node* const head, int const count)
 
 int main()
 {
-	Node* head = nullptr;
+	Node* head = nullptr;	//List 선언
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 5; i++)		//List 노드 삽입
 	{
 		Node* new_node = Create(i);
 		Push(&head,new_node);
 	}
 
-	int count = GetNodeCount(head);
+	int count = GetNodeCount(head);		//사이즈 측정
 
-	PrintList(head, count);
+	PrintList(head, count);			//출력
 
 	return 0;
 }
