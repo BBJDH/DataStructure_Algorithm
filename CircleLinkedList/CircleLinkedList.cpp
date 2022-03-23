@@ -85,14 +85,14 @@ Node* GetNode(Node* const head, int location)
 }
 int GetNodeCount(Node* const head)
 {
+	if (head == nullptr)
+		return 0;
+	if (head == head->Prev)
+		return 1;
+
 	int count = 1;
 	Node* current = head;
 	Node* tail = head->Prev;
-
-	if (current == nullptr)
-		return 0;
-	if (current == tail)
-		return count;
 	while (current != tail)
 	{
 		current = current->Next;
@@ -100,6 +100,7 @@ int GetNodeCount(Node* const head)
 	}
 	return count;
 }
+
 void PrintList(Node* const head, int const count)
 {
 	printf("Print List\n");
@@ -117,7 +118,7 @@ int main()
 {
 	Node* head = nullptr;	//List ¼±¾ð
 
-	for (int i = 0; i < 5; i++)		//List ³ëµå »ðÀÔ
+	for (int i = 0; i < 1; i++)		//List ³ëµå »ðÀÔ
 	{
 		Node* new_node = Create(i);
 		Push(&head,new_node);

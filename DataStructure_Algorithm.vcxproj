@@ -19,10 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Tempate\Class.h" />
+    <ClInclude Include="Stack\List_Stack.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Tempate\main.cpp" />
+    <ClCompile Include="Stack\List_Stack.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
