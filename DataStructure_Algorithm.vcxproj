@@ -19,10 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Stack\List_Stack.h" />
+    <ClInclude Include="Queue\Circular_Queue.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Stack\List_Stack.cpp" />
+    <ClCompile Include="Queue\Circular_Queue.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
