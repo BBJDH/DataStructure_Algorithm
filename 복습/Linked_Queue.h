@@ -1,4 +1,6 @@
 #pragma once
+#include<iostream>
+
 template<typename T>
 class Linked_Queue
 {
@@ -7,20 +9,24 @@ private:
 
 
 public:
-	Linked_Queue() :head{ nullptr }, front{ nullptr }, rear{nullptr}
+	Linked_Queue() : front{ nullptr }, rear{nullptr}
 	{}
-	~Linked_Queue();
+	~Linked_Queue()
+	{
+		if (IsEmpty() == false)
+			Dequeue_all();
+			
+	}
 
 	void EnQueue(T const data)
 	{
-		Node* node;
+		Node* node = new Node;
 		node->Data = data;
 		node->Next = nullptr;
 
-		if (front == nullptr)
+		if (IsEmpty())
 		{
 			front = node;
-			front->Next = node;
 			rear = node;
 		}
 		else
@@ -31,11 +37,40 @@ public:
 	}
 	T DeQueue()
 	{
-		T data = rear->data;
+		T data = front->Data; //리턴 데이터 보관
 
+		Node* del_Node = front; //삭제할 노드 주소 보관
+		front = front->Next;	//front 다음노드로 이동
+
+		delete del_Node;	//삭제
+
+		return data;
 	}
 	bool IsEmpty()
-	{}
+	{
+		return front == nullptr;
+	}
+	int GetSize()
+	{
+		int count = 0;
+
+		Node* start = front;
+		while (start !=nullptr)
+		{
+			start = start->Next;
+			count++;
+		}
+		return count;
+	}
+	void Dequeue_all()
+	{
+		std::cout << "Dequeue All.. Size is " <<GetSize()<< std::endl;
+		while (IsEmpty() == false)
+		{
+			std::cout << "Dequeue : " << DeQueue() << std::endl;
+		}
+	}
+
 private:
 	struct Node
 	{
