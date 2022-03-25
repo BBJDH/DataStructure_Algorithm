@@ -19,10 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="복습\Circular_Queue.h" />
+    <ClCompile Include="복습\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="복습\main.cpp" />
+    <ClInclude Include="복습\Linked_Queue.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
