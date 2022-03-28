@@ -19,11 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Tree\Tree.h" />
-    <ClInclude Include="Tree\헤더.h" />
+    <ClCompile Include="Tree\Operation\Operation.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Tree\Tree.cpp" />
+    <ClInclude Include="Tree\BinaryTree.h" />
+    <ClInclude Include="Tree\BTree.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
