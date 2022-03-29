@@ -19,11 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Tree\Operation\Operation.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Tree\BinaryTree.h" />
     <ClInclude Include="Tree\BTree.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="정렬\Bubble.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
