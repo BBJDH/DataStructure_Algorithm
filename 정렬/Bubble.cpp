@@ -8,7 +8,7 @@
 1 5 6 4 2 3 [바뀐 5와 6비교]
 1 5 6 4 2 3 [6과 4비교]
 1 5 4 6 2 3 [6과 2비교]
-1 5 4 2 3 6 [6과 3비교]
+1 5 4 2 3 6 [3과 6비교]
 1 5 4 2 3 6 [1과 5비교]
 1 5 4 2 3 6 [5과 4비교]
 1 4 5 2 3 6 [5과 2비교]
@@ -23,3 +23,36 @@
 							->비교시 스왑이 일어나는 경우 count를 증가하고 count가 0이면 정렬 완료 
 
 */
+
+#include<stdio.h>
+
+void Swap(int &a, int &b)
+{
+	int temp = a;
+	a = b;
+	b = temp;
+}
+
+
+void BubbleSort(int dataSet[], int length)
+{
+	for (int i = 0; i < length - 1; i++)
+	{
+		int count = 0;
+		for (int j = 0; j < length - 1;)
+		{
+			if (dataSet[j] > dataSet[j + 1])
+			{
+				Swap(dataSet[j], dataSet[j + 1]);
+				count++;
+			}
+		}
+		if (count == 0)
+			printf("sort end\n");
+	}
+}
+
+int main()
+{
+	return 0;
+}
